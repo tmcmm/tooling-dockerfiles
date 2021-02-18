@@ -12,9 +12,7 @@ RUN apk update \
 && apk add hping3 --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
 && apk add bind-tools \
 && curl -L "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl \
-&& chmod +x /usr/local/bin/kubectl \
-&& apk del --purge deps \
-&& rm /var/cache/apk/*
+&& chmod +x /usr/local/bin/kubectl
 
 
 RUN echo "This Netdebug container has these tools available: [netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]
