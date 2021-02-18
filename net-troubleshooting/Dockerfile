@@ -15,6 +15,7 @@ RUN apk update \
 && chmod +x /usr/local/bin/kubectl
 
 
-RUN echo "This Netdebug container has these tools available: [netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]
+RUN echo "This Netdebug container has these tools available: \n 
+[netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]"
 ENTRYPOINT []
 
