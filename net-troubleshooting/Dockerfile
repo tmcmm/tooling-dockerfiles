@@ -14,8 +14,9 @@ RUN apk update \
 && curl -L "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl \
 && chmod +x /usr/local/bin/kubectl
 
+RUN echo $'This Netdebug container has these tools available: \n\
+[netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]' 
 
-RUN echo "This Netdebug container has these tools available: \n [netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]"
-
-ENTRYPOINT echo "This Netdebug container has these tools available: \n [netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]"
+ENTRYPOINT echo 'This Netdebug container has these tools available: \n\
+[netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]'
 
