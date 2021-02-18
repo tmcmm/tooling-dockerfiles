@@ -28,4 +28,4 @@ RUN apk add --update ca-certificates \
 
 
 ENTRYPOINT []
-CMD ["/bin/bash"]
+CMD ["/bin/sh"]

@@ -12,3 +12,6 @@ RUN apk update \
 && apk add hping3 --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
 && apk add bind-tools \
 && curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+
+ENTRYPOINT []
+CMD ["/bin/sh"]
