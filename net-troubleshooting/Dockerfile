@@ -17,5 +17,7 @@ RUN apk update \
 
 RUN echo "This Netdebug container has these tools available: \n 
 [netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]"
-ENTRYPOINT []
+
+ENTRYPOINT echo "This Netdebug container has these tools available: \n 
+[netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]"
 
