@@ -31,32 +31,4 @@ RUN wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/
 RUN pip3 install -r requirements-azure.txt ;\
 rm requirements-azure.txt
 
-#RUN apk add --no-cache python3 py-cryptography && \
-#    apk add --no-cache -
-
-#RUN pip3 install 'ansible[azure]'
-#RUN ansible-galaxy install azure.azure_preview_modules
-
-#COPY ./linux/ansible/ansible*  /usr/local/bin/
-#RUN chmod 755 /usr/local/bin/ansible* && \
-#    pip3 install virtualenv && \
-#    cd /opt \
-#    virtualenv -p python3 ansible 
-#RUN pip3 install pywinrm>=0.2.2
-#RUN pip3 install ansible
-#RUN pip3 install pywinrm>=0.2.2  ;\
-#    pip3 install ansible[azure]
-# RUN ansible-galaxy install azure.azure_preview_modules    
-#    pip install 'ansible[azure]'
-
-
-#RUN wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt && \
-#pip3 install -r requirements-azure.txt && \
-#rm requirements-azure.txt
-#RUN ansible-galaxy collection install azure.azcollection
-
-# Temp: fix ansible modules. Proper fix is to update base layer to use regular python for Ansible.
-#RUN wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt \
-#    && /opt/ansible/bin/python -m pip install -r requirements-azure.txt \
-#    && rm requirements-azure.txt
-#RUN ansible-galaxy collection install azure.azcollection
+RUN ansible-galaxy collection install community.azure
