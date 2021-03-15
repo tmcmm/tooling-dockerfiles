@@ -32,3 +32,4 @@ RUN pip3 install -r requirements-azure.txt ;\
 rm requirements-azure.txt
 
 RUN ansible-galaxy collection install community.azure
+RUN ansible-galaxy collection install community.kubernetes
