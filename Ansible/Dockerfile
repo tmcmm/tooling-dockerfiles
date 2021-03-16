@@ -3,12 +3,6 @@ FROM alpine:latest
 LABEL Tiago Mendes <tiagomendes93@hotmail.com>
 ARG ANSIBLE_VERSION="2.9.6"
 
-#RUN apk --update add py-pip
-#RUN apk add --no-cache python3 py-cryptography && \
-#    apk add --no-cache --virtual python3-dev libffi-dev openssl-dev make gcc libc-dev make musl-dev && \
-#    pip install ansible && \
-#    pip install cryptography && \
-#    pip install 'ansible[azure]' 
 
 RUN apk --update add py-pip ;\
     apk add --no-cache --update --virtual .build-deps g++ python3-dev build-base libffi-dev openssl-dev gcc libc-dev make musl-dev;\
@@ -26,10 +20,13 @@ RUN apk --update add py-pip ;\
     rm -rf /var/cache/apk/* ;\
     rm -rf /root/.cache ;
 
-RUN ansible-galaxy install azure.azure_preview_modules   
+
+
 RUN wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
 RUN pip3 install -r requirements-azure.txt ;\
 rm requirements-azure.txt
+RUN ansible-galaxy collection install azure.azcollection --force
 
-RUN ansible-galaxy collection install community.azure
-RUN ansible-galaxy collection install community.kubernetes
+#RUN ansible-galaxy collection install community.azure
+#RUN ansible-galaxy collection install community.kubernetes
+#RUN ansible-galaxy install azure.azure_preview_modules
