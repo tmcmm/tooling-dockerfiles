@@ -22,9 +22,9 @@ RUN apk --update add py-pip ;\
 
 
 
-RUN wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
-RUN pip3 install -r requirements-azure.txt ;\
-rm requirements-azure.txt
+#RUN wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+#RUN pip3 install -r requirements-azure.txt ;\
+#rm requirements-azure.txt
 RUN ansible-galaxy collection install azure.azcollection --force
 
 #RUN ansible-galaxy collection install community.azure
