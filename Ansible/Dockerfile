@@ -1,8 +1,11 @@
 FROM alpine:latest
 
 LABEL Tiago Mendes <tiagomendes93@hotmail.com>
-ARG ANSIBLE_VERSION="2.9.6"
-
+ARG ANSIBLE_VERSION="2.10.7"
+#RUN apk update && \
+#apk add --no-cache ansible && \
+#rm -rf /tmp/* && \
+#rm -rf /var/cache/apk/*
 
 RUN apk --update add py-pip ;\
     apk add --no-cache --update --virtual .build-deps g++ python3-dev build-base libffi-dev openssl-dev gcc libc-dev make musl-dev;\
