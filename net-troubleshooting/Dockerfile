@@ -10,7 +10,7 @@ RUN apk update \
 && apk add nginx \
 && apk add git \
 && apk add openssh \
-#&& apk add conntrack \
+&& apk add bind-tools \
 && apk add tcptraceroute \
 && apk add bc \
 && apk add hping3 --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
@@ -29,9 +29,9 @@ RUN export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Install tcping
 RUN wget http://www.vdberg.org/~richard/tcpping ;\
-    sudo cp tcpping /usr/bin ;\
-    sudo chmod 755 tcpping
+    cp tcpping /usr/bin ;\
+    chmod 755 tcpping
 
-RUN echo -e 'This netdebug container has these tools available: [netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl, sniff, conntrack, tcping]' 
+RUN echo -e 'This netdebug container has these tools available: [netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl, sniff, conntrack, tcping, dnsutils]' 
 #ENTRYPOINT echo "This netdebug container has these tools available: [netcat-openbsd, nmap, curl, iputils, tcpdump, nginx, openssh , hping3, kubectl]"
 CMD ["/bin/sh"]
