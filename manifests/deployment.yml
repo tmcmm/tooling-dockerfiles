@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "akskubenet-c6c6"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "akskubenet-c6c6"
+  template:
+    metadata:
+      labels:
+        app: "akskubenet-c6c6"
+    spec:
+      containers:
+        - name: "akskubenet-c6c6"
+          image: "kubenetacr.azurecr.io/akskubenet"
+          ports:
+          - containerPort: 80
